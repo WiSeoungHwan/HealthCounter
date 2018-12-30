@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		3CD1A19821D916FE00DAF12A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD1A19721D916FE00DAF12A /* AppDelegate.swift */; };
-		3CD1A19A21D916FE00DAF12A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD1A19921D916FE00DAF12A /* ViewController.swift */; };
 		3CD1A19D21D916FE00DAF12A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1A19B21D916FE00DAF12A /* Main.storyboard */; };
 		3CD1A19F21D916FE00DAF12A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1A19E21D916FE00DAF12A /* Assets.xcassets */; };
 		3CD1A1A221D916FE00DAF12A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1A1A021D916FE00DAF12A /* LaunchScreen.storyboard */; };
+		3CD1A1B021D91B1300DAF12A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD1A1AF21D91B1300DAF12A /* MainViewController.swift */; };
+		3CD1A1B421D91E6F00DAF12A /* CustomHealthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD1A1B221D91E6F00DAF12A /* CustomHealthCell.swift */; };
+		3CD1A1B521D91E6F00DAF12A /* CustomHealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1A1B321D91E6F00DAF12A /* CustomHealthCell.xib */; };
+		3CD1A1B821D9287F00DAF12A /* HealthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD1A1B621D9287F00DAF12A /* HealthCell.swift */; };
+		3CD1A1B921D9287F00DAF12A /* HealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1A1B721D9287F00DAF12A /* HealthCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3CD1A19421D916FE00DAF12A /* HealthCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD1A19721D916FE00DAF12A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3CD1A19921D916FE00DAF12A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3CD1A19C21D916FE00DAF12A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CD1A19E21D916FE00DAF12A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CD1A1A121D916FE00DAF12A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CD1A1A321D916FE00DAF12A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CD1A1AF21D91B1300DAF12A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3CD1A1B221D91E6F00DAF12A /* CustomHealthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHealthCell.swift; sourceTree = "<group>"; };
+		3CD1A1B321D91E6F00DAF12A /* CustomHealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHealthCell.xib; sourceTree = "<group>"; };
+		3CD1A1B621D9287F00DAF12A /* HealthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCell.swift; sourceTree = "<group>"; };
+		3CD1A1B721D9287F00DAF12A /* HealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +63,65 @@
 			isa = PBXGroup;
 			children = (
 				3CD1A19721D916FE00DAF12A /* AppDelegate.swift */,
-				3CD1A19921D916FE00DAF12A /* ViewController.swift */,
-				3CD1A19B21D916FE00DAF12A /* Main.storyboard */,
+				3CD1A1AE21D91A9E00DAF12A /* Storyboard */,
+				3CD1A1AD21D91A8F00DAF12A /* Source */,
+				3CD1A1B121D91D8000DAF12A /* Nib */,
 				3CD1A19E21D916FE00DAF12A /* Assets.xcassets */,
 				3CD1A1A021D916FE00DAF12A /* LaunchScreen.storyboard */,
 				3CD1A1A321D916FE00DAF12A /* Info.plist */,
 			);
 			path = HealthCounter;
+			sourceTree = "<group>";
+		};
+		3CD1A1A921D91A3300DAF12A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3CD1A1AB21D91A5900DAF12A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3CD1A1AF21D91B1300DAF12A /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3CD1A1AC21D91A6A00DAF12A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3CD1A1AD21D91A8F00DAF12A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3CD1A1A921D91A3300DAF12A /* Model */,
+				3CD1A1AC21D91A6A00DAF12A /* View */,
+				3CD1A1AB21D91A5900DAF12A /* Controller */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		3CD1A1AE21D91A9E00DAF12A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				3CD1A19B21D916FE00DAF12A /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		3CD1A1B121D91D8000DAF12A /* Nib */ = {
+			isa = PBXGroup;
+			children = (
+				3CD1A1B221D91E6F00DAF12A /* CustomHealthCell.swift */,
+				3CD1A1B321D91E6F00DAF12A /* CustomHealthCell.xib */,
+				3CD1A1B621D9287F00DAF12A /* HealthCell.swift */,
+				3CD1A1B721D9287F00DAF12A /* HealthCell.xib */,
+			);
+			path = Nib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,8 +182,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD1A1B921D9287F00DAF12A /* HealthCell.xib in Resources */,
 				3CD1A1A221D916FE00DAF12A /* LaunchScreen.storyboard in Resources */,
 				3CD1A19F21D916FE00DAF12A /* Assets.xcassets in Resources */,
+				3CD1A1B521D91E6F00DAF12A /* CustomHealthCell.xib in Resources */,
 				3CD1A19D21D916FE00DAF12A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,8 +197,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CD1A19A21D916FE00DAF12A /* ViewController.swift in Sources */,
 				3CD1A19821D916FE00DAF12A /* AppDelegate.swift in Sources */,
+				3CD1A1B821D9287F00DAF12A /* HealthCell.swift in Sources */,
+				3CD1A1B021D91B1300DAF12A /* MainViewController.swift in Sources */,
+				3CD1A1B421D91E6F00DAF12A /* CustomHealthCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
