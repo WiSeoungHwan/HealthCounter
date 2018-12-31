@@ -37,7 +37,11 @@
                         <viewLayoutGuide key="safeArea" id="yiB-Ph-bz3"/>
                     </view>
                     <navigationItem key="navigationItem" title="HealthCounter" id="MSp-8W-fOH">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2bS-kY-085"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2bS-kY-085">
+                            <connections>
+                                <action selector="addCustomHealthCellBtnDidTap:" destination="JkI-PM-iwx" id="1EU-v5-sFg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="kDe-YZ-XtU" id="rJt-9A-DzN"/>

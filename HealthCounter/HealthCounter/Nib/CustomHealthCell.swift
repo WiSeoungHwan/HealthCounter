@@ -24,7 +24,6 @@ class CustomHealthCell: UITableViewCell {
        
     }
     @IBAction func startButtonDidTap(_ sender: Any) {
-        
     }
     
 }

@@ -16,6 +16,7 @@
 		3CD1A1B521D91E6F00DAF12A /* CustomHealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1A1B321D91E6F00DAF12A /* CustomHealthCell.xib */; };
 		3CD1A1B821D9287F00DAF12A /* HealthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD1A1B621D9287F00DAF12A /* HealthCell.swift */; };
 		3CD1A1B921D9287F00DAF12A /* HealthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1A1B721D9287F00DAF12A /* HealthCell.xib */; };
+		3CDB332221D9F33B002AED36 /* HealthCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDB332121D9F33B002AED36 /* HealthCellData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3CD1A1B321D91E6F00DAF12A /* CustomHealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHealthCell.xib; sourceTree = "<group>"; };
 		3CD1A1B621D9287F00DAF12A /* HealthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCell.swift; sourceTree = "<group>"; };
 		3CD1A1B721D9287F00DAF12A /* HealthCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthCell.xib; sourceTree = "<group>"; };
+		3CDB332121D9F33B002AED36 /* HealthCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCellData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		3CD1A1A921D91A3300DAF12A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3CDB332121D9F33B002AED36 /* HealthCellData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			files = (
 				3CD1A19821D916FE00DAF12A /* AppDelegate.swift in Sources */,
 				3CD1A1B821D9287F00DAF12A /* HealthCell.swift in Sources */,
+				3CDB332221D9F33B002AED36 /* HealthCellData.swift in Sources */,
 				3CD1A1B021D91B1300DAF12A /* MainViewController.swift in Sources */,
 				3CD1A1B421D91E6F00DAF12A /* CustomHealthCell.swift in Sources */,
 			);
