@@ -24,6 +24,9 @@ class CustomHealthCell: UITableViewCell {
        
     }
     @IBAction func startButtonDidTap(_ sender: Any) {
+        guard let tableView = self.superview as? UITableView else {return}
+        let indexPath = tableView.indexPath(for: self)
+        print(indexPath)
     }
     
 }

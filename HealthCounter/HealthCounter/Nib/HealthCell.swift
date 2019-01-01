@@ -23,6 +23,5 @@ class HealthCell: UITableViewCell {
     }
     
     @IBAction func setFinishButtonDidTap(_ sender: Any) {
-        
     }
 }
