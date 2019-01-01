@@ -15,6 +15,8 @@ class CustomHealthCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        countTextFeild.keyboardType = .numberPad
+        setCountTextFeild.keyboardType = .numberPad
         // Initialization code
     }
 
@@ -25,8 +27,15 @@ class CustomHealthCell: UITableViewCell {
     }
     @IBAction func startButtonDidTap(_ sender: Any) {
         guard let tableView = self.superview as? UITableView else {return}
-        let indexPath = tableView.indexPath(for: self)
+        guard let indexPath = tableView.indexPath(for: self),
+              let exerciseName = exerciseNameTextFeild.text,
+            let count = Int(countTextFeild.text ?? ""),
+            let setCount = Int(setCountTextFeild.text ?? "") else {return}
+        
+        let healthCellData = HealthCellData.init(indexPath: indexPath, exerciseName: exerciseName, count: count, setCount: setCount)
         print(indexPath)
+        let dic = ["healthCellData": healthCellData]
+        NotificationCenter.default.post(name: NSNotification.Name("startButtonDidTap"), object: nil, userInfo: dic)
     }
     
 }

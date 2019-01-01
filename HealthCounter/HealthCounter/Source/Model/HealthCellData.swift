@@ -9,7 +9,8 @@
 import Foundation
 
 struct HealthCellData{
+    let indexPath: IndexPath
     let exerciseName: String
-    let count: String
-    let setCount: String
+    let count: Int
+    var setCount: Int
 }

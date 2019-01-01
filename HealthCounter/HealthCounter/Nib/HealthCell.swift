@@ -12,7 +12,13 @@ class HealthCell: UITableViewCell {
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var setCountLabel: UILabel!
-    
+    var model: HealthCellData! {
+        didSet{
+            exerciseNameLabel.text = model.exerciseName
+            countLabel.text = "세트당 횟수: \(model.count)"
+            setCountLabel.text = "남은세트:\(model.setCount)"
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,5 +29,9 @@ class HealthCell: UITableViewCell {
     }
     
     @IBAction func setFinishButtonDidTap(_ sender: Any) {
+        if model.setCount > 0 {
+            model.setCount -= 1
+        }
+        NotificationCenter.default.post(name: NSNotification.Name("reloadTableView"), object: nil)
     }
 }

@@ -19,41 +19,64 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="114.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="운동이름" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdB-8b-D4i">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="운동이름" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdB-8b-D4i">
                         <rect key="frame" x="16" y="11" width="162" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="9oo-Bz-SuJ"/>
+                            <constraint firstAttribute="width" constant="162" id="M4f-EX-ak0"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="세트" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmp-CL-sb3">
-                        <rect key="frame" x="207" y="11" width="97" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="세트" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmp-CL-sb3">
+                        <rect key="frame" x="192" y="11" width="112" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="6qY-no-HJA"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="회" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLe-l6-VS8">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLe-l6-VS8">
                         <rect key="frame" x="16" y="60" width="162" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xs3-YW-beF">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xs3-YW-beF">
                         <rect key="frame" x="8" y="49" width="182" height="3"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="3" id="ws8-k7-qM0"/>
+                        </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGU-0K-2Th">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGU-0K-2Th">
                         <rect key="frame" x="236" y="58" width="56" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="세트완료 "/>
                         <connections>
                             <action selector="setFinishButtonDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eT1-8y-fL7"/>
                         </connections>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="GdB-8b-D4i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="3mX-at-6lE"/>
+                    <constraint firstAttribute="trailing" secondItem="Xs3-YW-beF" secondAttribute="trailing" constant="130" id="5Ag-pO-CVk"/>
+                    <constraint firstItem="ZGU-0K-2Th" firstAttribute="top" secondItem="dmp-CL-sb3" secondAttribute="bottom" constant="17" id="5ed-Hm-i3T"/>
+                    <constraint firstItem="GdB-8b-D4i" firstAttribute="height" secondItem="PLe-l6-VS8" secondAttribute="height" id="7TI-5M-zZv"/>
+                    <constraint firstItem="PLe-l6-VS8" firstAttribute="top" secondItem="Xs3-YW-beF" secondAttribute="bottom" constant="8" id="7ou-xl-0il"/>
+                    <constraint firstAttribute="trailing" secondItem="dmp-CL-sb3" secondAttribute="trailing" constant="16" id="8RZ-Tf-pkt"/>
+                    <constraint firstItem="Xs3-YW-beF" firstAttribute="top" secondItem="GdB-8b-D4i" secondAttribute="bottom" constant="8" id="LYR-cd-xdf"/>
+                    <constraint firstAttribute="trailing" secondItem="ZGU-0K-2Th" secondAttribute="trailing" constant="28" id="MjK-UN-xl6"/>
+                    <constraint firstItem="Xs3-YW-beF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="V3M-Cn-p8v"/>
+                    <constraint firstItem="Xs3-YW-beF" firstAttribute="width" secondItem="PLe-l6-VS8" secondAttribute="height" multiplier="91:15" id="X7O-WV-s6P"/>
+                    <constraint firstItem="dmp-CL-sb3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="ePf-jS-5B1"/>
+                    <constraint firstItem="ZGU-0K-2Th" firstAttribute="leading" secondItem="PLe-l6-VS8" secondAttribute="trailing" constant="58" id="g5B-jS-OIn"/>
+                    <constraint firstAttribute="bottom" secondItem="ZGU-0K-2Th" secondAttribute="bottom" constant="26.5" id="il2-aL-328"/>
+                    <constraint firstItem="GdB-8b-D4i" firstAttribute="width" secondItem="PLe-l6-VS8" secondAttribute="width" id="jn5-qR-oj1"/>
+                    <constraint firstItem="PLe-l6-VS8" firstAttribute="leading" secondItem="GdB-8b-D4i" secondAttribute="leading" id="kRC-4f-prn"/>
+                    <constraint firstItem="GdB-8b-D4i" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="wtG-E3-MWX"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
