@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
         tableView.register(UINib(nibName: "CustomHealthCell", bundle: nil), forCellReuseIdentifier: "CustomHealthCell")
         tableView.register(UINib(nibName: "HealthCell", bundle: nil), forCellReuseIdentifier: "HealthCell")
         guard let cell = Bundle.main.loadNibNamed("CustomHealthCell", owner: self, options: nil)?.first as? CustomHealthCell else {print("Cell Nib load err"); return}
+        //셀의 경계선 투명으로
+        tableView.separatorColor = .clear
         healthcells.append(cell)
         cell.selectionStyle = .none
         tableView.reloadData()
@@ -31,11 +33,11 @@ class MainViewController: UIViewController {
     @objc private func startButtonDidTap(_ noti: Notification){
         guard let userInfo = noti.userInfo as? [String: HealthCellData], let healthData = userInfo["healthCellData"] else { print("healthCellData Noti err"); return }
         
-        healthcells.remove(at: healthData.indexPath.row)
+        healthcells.remove(at: healthData.indexPath.section)
         guard let cell = Bundle.main.loadNibNamed("HealthCell", owner: self, options: nil)?.first as? HealthCell else {print("Cell Nib load err"); return}
         cell.selectionStyle = .none
         cell.model = healthData
-        healthcells.insert(cell, at: healthData.indexPath.row)
+        healthcells.insert(cell, at: healthData.indexPath.section)
         tableView.reloadData()
     }
     
@@ -50,12 +52,15 @@ class MainViewController: UIViewController {
     }
 }
 extension MainViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return healthcells.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return healthcells[indexPath.row]
+        return healthcells[indexPath.section]
     }
     
     
@@ -67,7 +72,7 @@ extension MainViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            healthcells.remove(at: indexPath.row)
+            healthcells.remove(at: indexPath.section)
             tableView.reloadData()
         default:
             break

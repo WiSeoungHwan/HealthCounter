@@ -18,9 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="43s-F7-gw3">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDe-YZ-XtU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                                 <connections>
                                     <outlet property="dataSource" destination="JkI-PM-iwx" id="zpc-0y-EOs"/>
                                     <outlet property="delegate" destination="JkI-PM-iwx" id="Fqb-2P-Hm5"/>
@@ -30,8 +34,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yiB-Ph-bz3" firstAttribute="bottom" secondItem="kDe-YZ-XtU" secondAttribute="bottom" id="1lw-54-Io6"/>
+                            <constraint firstItem="yiB-Ph-bz3" firstAttribute="trailing" secondItem="43s-F7-gw3" secondAttribute="trailing" id="78I-Va-0O5"/>
+                            <constraint firstItem="43s-F7-gw3" firstAttribute="top" secondItem="yiB-Ph-bz3" secondAttribute="top" id="94p-CR-kfb"/>
                             <constraint firstItem="kDe-YZ-XtU" firstAttribute="top" secondItem="yiB-Ph-bz3" secondAttribute="top" id="I9J-hs-Sze"/>
                             <constraint firstItem="kDe-YZ-XtU" firstAttribute="leading" secondItem="yiB-Ph-bz3" secondAttribute="leading" id="Kgt-be-ZXn"/>
+                            <constraint firstItem="43s-F7-gw3" firstAttribute="leading" secondItem="yiB-Ph-bz3" secondAttribute="leading" id="UR6-h9-5MZ"/>
+                            <constraint firstItem="yiB-Ph-bz3" firstAttribute="bottom" secondItem="43s-F7-gw3" secondAttribute="bottom" id="Ypa-Mv-Mfv"/>
                             <constraint firstItem="yiB-Ph-bz3" firstAttribute="trailing" secondItem="kDe-YZ-XtU" secondAttribute="trailing" id="g9F-Cj-fNL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yiB-Ph-bz3"/>
@@ -70,4 +78,7 @@
             <point key="canvasLocation" x="72.799999999999997" y="-202.84857571214394"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="81.120002746582031" height="108"/>
+    </resources>
 </document>

@@ -15,6 +15,7 @@ class CustomHealthCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.contentView.layer.cornerRadius = 18
         countTextFeild.keyboardType = .numberPad
         setCountTextFeild.keyboardType = .numberPad
         // Initialization code
@@ -32,7 +33,7 @@ class CustomHealthCell: UITableViewCell {
             let count = Int(countTextFeild.text ?? ""),
             let setCount = Int(setCountTextFeild.text ?? "") else {return}
         
-        let healthCellData = HealthCellData.init(indexPath: indexPath, exerciseName: exerciseName, count: count, setCount: setCount)
+        let healthCellData = HealthCellData.init(isTimerCellOpen: false, indexPath: indexPath, exerciseName: exerciseName, count: count, setCount: setCount)
         print(indexPath)
         let dic = ["healthCellData": healthCellData]
         NotificationCenter.default.post(name: NSNotification.Name("startButtonDidTap"), object: nil, userInfo: dic)

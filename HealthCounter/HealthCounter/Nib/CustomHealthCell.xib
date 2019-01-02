@@ -31,7 +31,7 @@
                     </textField>
                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSi-4i-rjR">
                         <rect key="frame" x="8" y="49" width="182" height="3"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="3" id="gtz-h8-QjJ"/>
                         </constraints>
@@ -76,6 +76,7 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
+                <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="0.751953125" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="I0f-Vb-uKe" firstAttribute="leading" secondItem="cVV-sm-WcN" secondAttribute="trailing" constant="40" id="14o-oF-WBx"/>
                     <constraint firstAttribute="bottom" secondItem="WDF-jf-vht" secondAttribute="bottom" constant="24.5" id="4Ux-UJ-FNK"/>
@@ -100,6 +101,7 @@
                     <constraint firstItem="gVd-jH-ef9" firstAttribute="top" secondItem="lFF-zA-M4u" secondAttribute="bottom" constant="14" id="vtC-9b-5h3"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="countTextFeild" destination="WDF-jf-vht" id="O2o-E2-ZJa"/>

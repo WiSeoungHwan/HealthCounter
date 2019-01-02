@@ -9,6 +9,7 @@
 import Foundation
 
 struct HealthCellData{
+    var isTimerCellOpen: Bool
     let indexPath: IndexPath
     let exerciseName: String
     let count: Int
