@@ -34,4 +34,8 @@ class HealthCell: UITableViewCell {
         }
         NotificationCenter.default.post(name: NSNotification.Name("reloadTableView"), object: nil)
     }
+    @IBAction func timerButtonDidTap(_ sender: Any) {
+        model.isTimerCellOpen.toggle()
+                NotificationCenter.default.post(name: NSNotification.Name("reloadTableView"), object: nil)
+    }
 }

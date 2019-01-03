@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C064E1821DC997F009A43AD /* TimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C064E1621DC997F009A43AD /* TimerTableViewCell.swift */; };
+		3C064E1921DC997F009A43AD /* TimerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C064E1721DC997F009A43AD /* TimerTableViewCell.xib */; };
 		3CD1A19821D916FE00DAF12A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD1A19721D916FE00DAF12A /* AppDelegate.swift */; };
 		3CD1A19D21D916FE00DAF12A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1A19B21D916FE00DAF12A /* Main.storyboard */; };
 		3CD1A19F21D916FE00DAF12A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD1A19E21D916FE00DAF12A /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C064E1621DC997F009A43AD /* TimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTableViewCell.swift; sourceTree = "<group>"; };
+		3C064E1721DC997F009A43AD /* TimerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerTableViewCell.xib; sourceTree = "<group>"; };
 		3CD1A19421D916FE00DAF12A /* HealthCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD1A19721D916FE00DAF12A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CD1A19C21D916FE00DAF12A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				3CD1A1B321D91E6F00DAF12A /* CustomHealthCell.xib */,
 				3CD1A1B621D9287F00DAF12A /* HealthCell.swift */,
 				3CD1A1B721D9287F00DAF12A /* HealthCell.xib */,
+				3C064E1621DC997F009A43AD /* TimerTableViewCell.swift */,
+				3C064E1721DC997F009A43AD /* TimerTableViewCell.xib */,
 			);
 			path = Nib;
 			sourceTree = "<group>";
@@ -186,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CD1A1B921D9287F00DAF12A /* HealthCell.xib in Resources */,
+				3C064E1921DC997F009A43AD /* TimerTableViewCell.xib in Resources */,
 				3CD1A1A221D916FE00DAF12A /* LaunchScreen.storyboard in Resources */,
 				3CD1A19F21D916FE00DAF12A /* Assets.xcassets in Resources */,
 				3CD1A1B521D91E6F00DAF12A /* CustomHealthCell.xib in Resources */,
@@ -205,6 +212,7 @@
 				3CDB332221D9F33B002AED36 /* HealthCellData.swift in Sources */,
 				3CD1A1B021D91B1300DAF12A /* MainViewController.swift in Sources */,
 				3CD1A1B421D91E6F00DAF12A /* CustomHealthCell.swift in Sources */,
+				3C064E1821DC997F009A43AD /* TimerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,11 +56,22 @@ extension MainViewController: UITableViewDataSource{
         return healthcells.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let healthCell = healthcells[section] as? HealthCell else {return 1}
+        if healthCell.model.isTimerCellOpen == true{
+            return 2
+        }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return healthcells[indexPath.section]
+        if indexPath.row == 0{
+            return healthcells[indexPath.section]
+        }else{
+            guard let timerCell = Bundle.main.loadNibNamed("TimerTableViewCell", owner: self, options: nil)?.first as? TimerTableViewCell else {print("Cell Nib load err"); return UITableViewCell()}
+            return timerCell
+            
+        }
+        
     }
     
     
