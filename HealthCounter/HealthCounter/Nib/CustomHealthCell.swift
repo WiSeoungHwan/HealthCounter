@@ -15,6 +15,9 @@ class CustomHealthCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        exerciseNameTextFeild.delegate = self
+        countTextFeild.delegate = self
+        setCountTextFeild.delegate = self
         self.contentView.layer.cornerRadius = 18
         countTextFeild.keyboardType = .numberPad
         setCountTextFeild.keyboardType = .numberPad
@@ -39,4 +42,10 @@ class CustomHealthCell: UITableViewCell {
         NotificationCenter.default.post(name: NSNotification.Name("startButtonDidTap"), object: nil, userInfo: dic)
     }
     
+}
+extension CustomHealthCell: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // hide Keyboard
+        return true
+    }
 }

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HealthCounter-->
+        <!--운동-->
         <scene sceneID="JxU-ZC-VQG">
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="JkI-PM-iwx" customClass="MainViewController" customModule="HealthCounter" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="43s-F7-gw3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDe-YZ-XtU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                                 <connections>
@@ -44,7 +44,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yiB-Ph-bz3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="HealthCounter" id="MSp-8W-fOH">
+                    <tabBarItem key="tabBarItem" title="운동" image="routine" id="9vX-hL-Nhd"/>
+                    <navigationItem key="navigationItem" id="MSp-8W-fOH">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2bS-kY-085">
                             <connections>
                                 <action selector="addCustomHealthCellBtnDidTap:" destination="JkI-PM-iwx" id="1EU-v5-sFg"/>
@@ -57,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSi-5M-e19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="-202.84857571214394"/>
+            <point key="canvasLocation" x="1978" y="-519"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ucw-96-bfa">
@@ -70,15 +71,52 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="JkI-PM-iwx" kind="relationship" relationship="rootViewController" id="LZ4-iF-gaH"/>
+                        <segue destination="VYM-eA-mG4" kind="relationship" relationship="rootViewController" id="LZ4-iF-gaH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tp-l2-ZME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="72.799999999999997" y="-202.84857571214394"/>
         </scene>
+        <!--HealthCounter-->
+        <scene sceneID="yhV-WA-uUa">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="VYM-eA-mG4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="HealthCounter" id="oR4-RS-6Yo"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YXf-ET-6IY">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="JkI-PM-iwx" kind="relationship" relationship="viewControllers" id="XJh-oZ-4cd"/>
+                        <segue destination="E0d-qH-9PF" kind="relationship" relationship="viewControllers" id="amb-Cz-bpb"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIs-lL-jxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012" y="-202.84857571214394"/>
+        </scene>
+        <!--루틴-->
+        <scene sceneID="NY8-Ze-wup">
+            <objects>
+                <viewController id="E0d-qH-9PF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B51-Xv-OXV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="oPN-6f-E4y"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="루틴" image="training" id="UgF-Ur-l7N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SmM-1F-70p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1971" y="188"/>
+        </scene>
     </scenes>
     <resources>
         <image name="back" width="81.120002746582031" height="108"/>
+        <image name="routine" width="37.5" height="37.5"/>
+        <image name="training" width="37.5" height="37.5"/>
     </resources>
 </document>
