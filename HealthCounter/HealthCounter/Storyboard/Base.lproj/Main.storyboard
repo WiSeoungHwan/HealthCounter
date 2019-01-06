@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oYF-be-PA7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VYM-eA-mG4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="43s-F7-gw3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDe-YZ-XtU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
@@ -30,53 +30,43 @@
                                     <outlet property="delegate" destination="JkI-PM-iwx" id="Fqb-2P-Hm5"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="YoV-kH-UxO">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="HealthCounter" id="QKh-zN-qc5">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zuO-oz-k3O">
+                                            <connections>
+                                                <action selector="addCustomHealthCellBtnDidTap:" destination="JkI-PM-iwx" id="vGq-vu-O5O"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yiB-Ph-bz3" firstAttribute="bottom" secondItem="kDe-YZ-XtU" secondAttribute="bottom" id="1lw-54-Io6"/>
                             <constraint firstItem="yiB-Ph-bz3" firstAttribute="trailing" secondItem="43s-F7-gw3" secondAttribute="trailing" id="78I-Va-0O5"/>
                             <constraint firstItem="43s-F7-gw3" firstAttribute="top" secondItem="yiB-Ph-bz3" secondAttribute="top" id="94p-CR-kfb"/>
-                            <constraint firstItem="kDe-YZ-XtU" firstAttribute="top" secondItem="yiB-Ph-bz3" secondAttribute="top" id="I9J-hs-Sze"/>
                             <constraint firstItem="kDe-YZ-XtU" firstAttribute="leading" secondItem="yiB-Ph-bz3" secondAttribute="leading" id="Kgt-be-ZXn"/>
+                            <constraint firstItem="kDe-YZ-XtU" firstAttribute="top" secondItem="YoV-kH-UxO" secondAttribute="bottom" id="PUm-TE-pIw"/>
                             <constraint firstItem="43s-F7-gw3" firstAttribute="leading" secondItem="yiB-Ph-bz3" secondAttribute="leading" id="UR6-h9-5MZ"/>
+                            <constraint firstItem="YoV-kH-UxO" firstAttribute="top" secondItem="yiB-Ph-bz3" secondAttribute="top" id="VHR-19-SPh"/>
                             <constraint firstItem="yiB-Ph-bz3" firstAttribute="bottom" secondItem="43s-F7-gw3" secondAttribute="bottom" id="Ypa-Mv-Mfv"/>
+                            <constraint firstItem="YoV-kH-UxO" firstAttribute="leading" secondItem="yiB-Ph-bz3" secondAttribute="leading" id="et4-Ac-Z2B"/>
                             <constraint firstItem="yiB-Ph-bz3" firstAttribute="trailing" secondItem="kDe-YZ-XtU" secondAttribute="trailing" id="g9F-Cj-fNL"/>
+                            <constraint firstItem="YoV-kH-UxO" firstAttribute="trailing" secondItem="yiB-Ph-bz3" secondAttribute="trailing" id="uyN-XQ-DpQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yiB-Ph-bz3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="운동" image="routine" id="9vX-hL-Nhd"/>
-                    <navigationItem key="navigationItem" id="MSp-8W-fOH">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2bS-kY-085">
-                            <connections>
-                                <action selector="addCustomHealthCellBtnDidTap:" destination="JkI-PM-iwx" id="1EU-v5-sFg"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="kDe-YZ-XtU" id="rJt-9A-DzN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSi-5M-e19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1978" y="-519"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Ucw-96-bfa">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oYF-be-PA7" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sjg-IU-JAe">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="VYM-eA-mG4" kind="relationship" relationship="rootViewController" id="LZ4-iF-gaH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9tp-l2-ZME" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="72.799999999999997" y="-202.84857571214394"/>
+            <point key="canvasLocation" x="1976.8" y="-519.49025487256381"/>
         </scene>
         <!--HealthCounter-->
         <scene sceneID="yhV-WA-uUa">
@@ -84,9 +74,12 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="VYM-eA-mG4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="HealthCounter" id="oR4-RS-6Yo"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YXf-ET-6IY">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="YXf-ET-6IY">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.73132491438356162" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="JkI-PM-iwx" kind="relationship" relationship="viewControllers" id="XJh-oZ-4cd"/>
@@ -104,6 +97,15 @@
                     <view key="view" contentMode="scaleToFill" id="B51-Xv-OXV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hyu-0W-fZn">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="HealthCounter" id="fou-X9-O4K"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="oPN-6f-E4y"/>
                     </view>
