@@ -30,6 +30,8 @@ class MainViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("reloadTableView"), object: nil)
     }
     
+    // MARK: objc func
+    
     @objc private func startButtonDidTap(_ noti: Notification){
         guard let userInfo = noti.userInfo as? [String: HealthCellData], let healthData = userInfo["healthCellData"] else { print("healthCellData Noti err"); return }
         
@@ -40,6 +42,11 @@ class MainViewController: UIViewController {
         healthcells.insert(cell, at: healthData.indexPath.section)
         tableView.reloadData()
     }
+    @objc private func reloadTableView(){
+        tableView.reloadData()
+    }
+    
+    // MARK: IBAction func
     
     @IBAction func addCustomHealthCellBtnDidTap(_ sender: Any) {
         guard let cell = Bundle.main.loadNibNamed("CustomHealthCell", owner: self, options: nil)?.first as? CustomHealthCell else {print("Cell Nib load err"); return}
@@ -47,9 +54,26 @@ class MainViewController: UIViewController {
         cell.selectionStyle = .none
         tableView.reloadData()
     }
-    @objc private func reloadTableView(){
-        tableView.reloadData()
+    @IBAction func routineSaveButtonDidTap(_ sender: Any) {
+        makeAlert()
+        
     }
+    
+    // MARK: private func
+    
+    private func makeAlert(){
+        let alertController = UIAlertController(title: "루틴 저장", message: "루틴의 이름을 정해주세요", preferredStyle: .alert)
+        alertController.addTextField(configurationHandler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (okAction) in
+            // ok 눌렀을때 이름과 현재 창에 있는 셀 데이터 배열 저장하기
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }
 extension MainViewController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {

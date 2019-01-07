@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="43s-F7-gw3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exerciseBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="43s-F7-gw3">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kDe-YZ-XtU">
@@ -32,13 +32,23 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="YoV-kH-UxO">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <offsetWrapper key="textShadowOffset" horizontal="-240" vertical="0.0"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="HealthCounter" id="QKh-zN-qc5">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zuO-oz-k3O">
-                                            <connections>
-                                                <action selector="addCustomHealthCellBtnDidTap:" destination="JkI-PM-iwx" id="vGq-vu-O5O"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="zuO-oz-k3O">
+                                                <connections>
+                                                    <action selector="addCustomHealthCellBtnDidTap:" destination="JkI-PM-iwx" id="vGq-vu-O5O"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="루틴 저장" id="b68-zz-WLx">
+                                                <connections>
+                                                    <action selector="routineSaveButtonDidTap:" destination="JkI-PM-iwx" id="HNB-Sh-0U3"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -93,32 +103,58 @@
         <!--루틴-->
         <scene sceneID="NY8-Ze-wup">
             <objects>
-                <viewController id="E0d-qH-9PF" sceneMemberID="viewController">
+                <viewController id="E0d-qH-9PF" customClass="RoutineViewController" customModule="HealthCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B51-Xv-OXV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hyu-0W-fZn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="routineBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="yCL-fv-Uk2">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Hyu-0W-fZn">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <offsetWrapper key="textShadowOffset" horizontal="-240" vertical="0.0"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="HealthCounter" id="fou-X9-O4K"/>
+                                    <navigationItem title="HealthCounter" id="EnT-jT-caZ"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="91L-zE-Cel">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oPN-6f-E4y" firstAttribute="bottom" secondItem="91L-zE-Cel" secondAttribute="bottom" id="Bq6-Ym-JAx"/>
+                            <constraint firstItem="yCL-fv-Uk2" firstAttribute="leading" secondItem="oPN-6f-E4y" secondAttribute="leading" id="IRq-MB-rEZ"/>
+                            <constraint firstItem="oPN-6f-E4y" firstAttribute="bottom" secondItem="yCL-fv-Uk2" secondAttribute="bottom" id="Ok9-sq-PjL"/>
+                            <constraint firstItem="91L-zE-Cel" firstAttribute="top" secondItem="Hyu-0W-fZn" secondAttribute="bottom" id="Tpi-iy-reW"/>
+                            <constraint firstItem="91L-zE-Cel" firstAttribute="leading" secondItem="oPN-6f-E4y" secondAttribute="leading" id="V3M-6k-vM9"/>
+                            <constraint firstItem="yCL-fv-Uk2" firstAttribute="top" secondItem="oPN-6f-E4y" secondAttribute="top" id="XJJ-NH-b6W"/>
+                            <constraint firstItem="Hyu-0W-fZn" firstAttribute="trailing" secondItem="oPN-6f-E4y" secondAttribute="trailing" id="XzC-UK-GCj"/>
+                            <constraint firstItem="oPN-6f-E4y" firstAttribute="trailing" secondItem="91L-zE-Cel" secondAttribute="trailing" id="Ywi-4G-MKA"/>
+                            <constraint firstItem="oPN-6f-E4y" firstAttribute="trailing" secondItem="yCL-fv-Uk2" secondAttribute="trailing" id="dWX-dQ-0P0"/>
+                            <constraint firstItem="Hyu-0W-fZn" firstAttribute="top" secondItem="oPN-6f-E4y" secondAttribute="top" id="esw-DX-QDm"/>
+                            <constraint firstItem="Hyu-0W-fZn" firstAttribute="leading" secondItem="oPN-6f-E4y" secondAttribute="leading" id="wc7-ea-iMF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oPN-6f-E4y"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="루틴" image="training" id="UgF-Ur-l7N"/>
+                    <connections>
+                        <outlet property="tableView" destination="91L-zE-Cel" id="U4n-wp-zxr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SmM-1F-70p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1971" y="188"/>
+            <point key="canvasLocation" x="1970.4000000000001" y="187.55622188905548"/>
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="81.120002746582031" height="108"/>
+        <image name="exerciseBackgroundImage" width="3360" height="5040"/>
         <image name="routine" width="37.5" height="37.5"/>
+        <image name="routineBackgroundImage" width="1981" height="2926"/>
         <image name="training" width="37.5" height="37.5"/>
     </resources>
 </document>
