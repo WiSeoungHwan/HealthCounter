@@ -18,14 +18,13 @@ class MainViewController: UIViewController {
         configure()
     }
     func configure(){
-        tableView.register(UINib(nibName: "CustomHealthCell", bundle: nil), forCellReuseIdentifier: "CustomHealthCell")
-        tableView.register(UINib(nibName: "HealthCell", bundle: nil), forCellReuseIdentifier: "HealthCell")
         guard let cell = Bundle.main.loadNibNamed("CustomHealthCell", owner: self, options: nil)?.first as? CustomHealthCell else {print("Cell Nib load err"); return}
-        //셀의 경계선 투명으로
-        tableView.separatorColor = .clear
         healthcells.append(cell)
         cell.selectionStyle = .none
+        tableView.separatorColor = .clear //셀의 경계선 투명으로
         tableView.reloadData()
+        
+        // MARK: Noti
         NotificationCenter.default.addObserver(self, selector: #selector(startButtonDidTap), name: NSNotification.Name(rawValue: "startButtonDidTap"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("reloadTableView"), object: nil)
     }
@@ -64,8 +63,17 @@ class MainViewController: UIViewController {
     private func makeAlert(){
         let alertController = UIAlertController(title: "루틴 저장", message: "루틴의 이름을 정해주세요", preferredStyle: .alert)
         alertController.addTextField(configurationHandler: nil)
-        let okAction = UIAlertAction(title: "OK", style: .default) { (okAction) in
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             // ok 눌렀을때 이름과 현재 창에 있는 셀 데이터 배열 저장하기
+            let routineData = RoutineData.init(routineName: alertController.textFields![0].text ?? "임의 루틴 이름", HealthCellDatas: self.healthcells)
+            if UserDefaults.standard.value(forKey: "routineDatas") == nil {
+                let routineDatas = [routineData] as NSArray
+                UserDefaults.standard.set(routineDatas, forKey: "routineDatas")
+            }else{
+                guard var routineDatas = UserDefaults.standard.value(forKey: "routineDatas") as? [RoutineData] else { return}
+                routineDatas.append(routineData)
+                UserDefaults.standard.set(routineData, forKey: "routineDatas")
+            }
             
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

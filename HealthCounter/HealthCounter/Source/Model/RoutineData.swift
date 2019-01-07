@@ -6,9 +6,9 @@
 //  Copyright © 2019 Wi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct RoutineData {
     let routineName: String
-    let HealthCellDatas: [HealthCellData]
+    let HealthCellDatas: [UITableViewCell]
 }

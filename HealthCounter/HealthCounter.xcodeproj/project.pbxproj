@@ -21,6 +21,8 @@
 		3CDB332221D9F33B002AED36 /* HealthCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDB332121D9F33B002AED36 /* HealthCellData.swift */; };
 		3CE4835521E2FD1000789D15 /* RoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4835421E2FD1000789D15 /* RoutineViewController.swift */; };
 		3CE4835721E3034600789D15 /* RoutineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4835621E3034600789D15 /* RoutineData.swift */; };
+		3CE4835A21E30BFF00789D15 /* RoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4835821E30BFF00789D15 /* RoutineTableViewCell.swift */; };
+		3CE4835B21E30BFF00789D15 /* RoutineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE4835921E30BFF00789D15 /* RoutineTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		3CDB332121D9F33B002AED36 /* HealthCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCellData.swift; sourceTree = "<group>"; };
 		3CE4835421E2FD1000789D15 /* RoutineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineViewController.swift; sourceTree = "<group>"; };
 		3CE4835621E3034600789D15 /* RoutineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineData.swift; sourceTree = "<group>"; };
+		3CE4835821E30BFF00789D15 /* RoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTableViewCell.swift; sourceTree = "<group>"; };
+		3CE4835921E30BFF00789D15 /* RoutineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutineTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 				3CD1A1B721D9287F00DAF12A /* HealthCell.xib */,
 				3C064E1621DC997F009A43AD /* TimerTableViewCell.swift */,
 				3C064E1721DC997F009A43AD /* TimerTableViewCell.xib */,
+				3CE4835821E30BFF00789D15 /* RoutineTableViewCell.swift */,
+				3CE4835921E30BFF00789D15 /* RoutineTableViewCell.xib */,
 			);
 			path = Nib;
 			sourceTree = "<group>";
@@ -201,6 +207,7 @@
 				3C064E1921DC997F009A43AD /* TimerTableViewCell.xib in Resources */,
 				3CD1A1A221D916FE00DAF12A /* LaunchScreen.storyboard in Resources */,
 				3CD1A19F21D916FE00DAF12A /* Assets.xcassets in Resources */,
+				3CE4835B21E30BFF00789D15 /* RoutineTableViewCell.xib in Resources */,
 				3CD1A1B521D91E6F00DAF12A /* CustomHealthCell.xib in Resources */,
 				3CD1A19D21D916FE00DAF12A /* Main.storyboard in Resources */,
 			);
@@ -220,6 +227,7 @@
 				3CD1A1B421D91E6F00DAF12A /* CustomHealthCell.swift in Sources */,
 				3CE4835521E2FD1000789D15 /* RoutineViewController.swift in Sources */,
 				3CE4835721E3034600789D15 /* RoutineData.swift in Sources */,
+				3CE4835A21E30BFF00789D15 /* RoutineTableViewCell.swift in Sources */,
 				3C064E1821DC997F009A43AD /* TimerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

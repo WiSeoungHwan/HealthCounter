@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="63" id="KGk-i7-Jjw" customClass="RoutineTableViewCell" customModule="HealthCounter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="503" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="503" height="62.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상체운동루틴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flz-q2-oIM">
+                        <rect key="frame" x="20" y="10" width="130" height="42.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTS-au-RQa">
+                        <rect key="frame" x="413" y="15" width="70" height="32.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <state key="normal" title="불러오기"/>
+                        <connections>
+                            <action selector="loadRoutineButtonDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oHw-nl-Ps2"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="flz-q2-oIM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="QtR-bU-YAt"/>
+                    <constraint firstItem="flz-q2-oIM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="cwT-3m-407"/>
+                    <constraint firstAttribute="bottom" secondItem="TTS-au-RQa" secondAttribute="bottom" constant="15" id="ff7-fz-YmK"/>
+                    <constraint firstAttribute="bottom" secondItem="flz-q2-oIM" secondAttribute="bottom" constant="10" id="i5e-sA-Hfv"/>
+                    <constraint firstItem="TTS-au-RQa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="oxe-6B-oRG"/>
+                    <constraint firstAttribute="trailing" secondItem="TTS-au-RQa" secondAttribute="trailing" constant="20" id="xeV-i8-opd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.73132491440000003" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="routineNameLabel" destination="flz-q2-oIM" id="LtT-n1-d7d"/>
+            </connections>
+            <point key="canvasLocation" x="186.40000000000001" y="55.322338830584712"/>
+        </tableViewCell>
+    </objects>
+</document>
