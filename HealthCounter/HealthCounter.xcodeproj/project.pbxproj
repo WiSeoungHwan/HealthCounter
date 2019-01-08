@@ -23,6 +23,7 @@
 		3CE4835721E3034600789D15 /* RoutineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4835621E3034600789D15 /* RoutineData.swift */; };
 		3CE4835A21E30BFF00789D15 /* RoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4835821E30BFF00789D15 /* RoutineTableViewCell.swift */; };
 		3CE4835B21E30BFF00789D15 /* RoutineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE4835921E30BFF00789D15 /* RoutineTableViewCell.xib */; };
+		3CE483A021E4902F00789D15 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4839E21E4902F00789D15 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		3CE4835621E3034600789D15 /* RoutineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineData.swift; sourceTree = "<group>"; };
 		3CE4835821E30BFF00789D15 /* RoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTableViewCell.swift; sourceTree = "<group>"; };
 		3CE4835921E30BFF00789D15 /* RoutineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutineTableViewCell.xib; sourceTree = "<group>"; };
+		3CE4839F21E4902F00789D15 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				3CD1A19E21D916FE00DAF12A /* Assets.xcassets */,
 				3CD1A1A021D916FE00DAF12A /* LaunchScreen.storyboard */,
 				3CD1A1A321D916FE00DAF12A /* Info.plist */,
+				3CE4839E21E4902F00789D15 /* Model.xcdatamodeld */,
 			);
 			path = HealthCounter;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				3CD1A1B421D91E6F00DAF12A /* CustomHealthCell.swift in Sources */,
 				3CE4835521E2FD1000789D15 /* RoutineViewController.swift in Sources */,
 				3CE4835721E3034600789D15 /* RoutineData.swift in Sources */,
+				3CE483A021E4902F00789D15 /* Model.xcdatamodeld in Sources */,
 				3CE4835A21E30BFF00789D15 /* RoutineTableViewCell.swift in Sources */,
 				3C064E1821DC997F009A43AD /* TimerTableViewCell.swift in Sources */,
 			);
@@ -428,6 +432,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3CE4839E21E4902F00789D15 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3CE4839F21E4902F00789D15 /* Model.xcdatamodel */,
+			);
+			currentVersion = 3CE4839F21E4902F00789D15 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3CD1A18C21D916FD00DAF12A /* Project object */;
 }
