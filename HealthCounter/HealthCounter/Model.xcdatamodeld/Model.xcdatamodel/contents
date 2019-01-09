@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Routine" representedClassName="Routine" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute1" optional="YES" syncable="YES"/>
-        <attribute name="routineName" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="exercises" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="routineName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Routine" positionX="-36" positionY="9" width="128" height="75"/>

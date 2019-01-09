@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct RoutineData {
+struct RoutineData: Codable {
     let routineName: String
-    let HealthCellDatas: [UITableViewCell]
+    let HealthCellDatas: [HealthCellData]
 }

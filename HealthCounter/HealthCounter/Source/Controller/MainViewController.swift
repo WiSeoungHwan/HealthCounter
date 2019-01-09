@@ -7,26 +7,29 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    var healthcells: [HealthCellData] = []
     
-    
-    var healthcells: [UITableViewCell] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
+    
+    // MARK: configure
+    
     func configure(){
-        guard let cell = Bundle.main.loadNibNamed("CustomHealthCell", owner: self, options: nil)?.first as? CustomHealthCell else {print("Cell Nib load err"); return}
-        healthcells.append(cell)
-        cell.selectionStyle = .none
+        let healthcellData = HealthCellData.init(isCustomCell: true, isTimerCellOpen: nil, indexPath: nil, exerciseName: nil, count: nil, setCount: nil)
+        healthcells.append(healthcellData)
         tableView.separatorColor = .clear //셀의 경계선 투명으로
         tableView.reloadData()
         
         // MARK: Noti
         NotificationCenter.default.addObserver(self, selector: #selector(startButtonDidTap), name: NSNotification.Name(rawValue: "startButtonDidTap"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("reloadTableView"), object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(loadRoutine), name: NSNotification.Name("loadRoutine"), object: nil)
     }
     
     // MARK: objc func
@@ -34,52 +37,81 @@ class MainViewController: UIViewController {
     @objc private func startButtonDidTap(_ noti: Notification){
         guard let userInfo = noti.userInfo as? [String: HealthCellData], let healthData = userInfo["healthCellData"] else { print("healthCellData Noti err"); return }
         
-        healthcells.remove(at: healthData.indexPath.section)
-        guard let cell = Bundle.main.loadNibNamed("HealthCell", owner: self, options: nil)?.first as? HealthCell else {print("Cell Nib load err"); return}
-        cell.selectionStyle = .none
-        cell.model = healthData
-        healthcells.insert(cell, at: healthData.indexPath.section)
+        healthcells.remove(at: healthData.indexPath!.section)
+        healthcells.insert(healthData, at: healthData.indexPath!.section)
         tableView.reloadData()
     }
     @objc private func reloadTableView(){
         tableView.reloadData()
     }
+    @objc private func loadRoutine(noti: Notification){
+        guard let userInfo = noti.userInfo as? [String: Data], let data = userInfo["healthData"] else{return}
+        do {
+            let routineData = try JSONDecoder().decode(RoutineData.self, from: data)
+            self.healthcells = routineData.HealthCellDatas
+            tableView.reloadData()
+        }catch{
+            print(error.localizedDescription)
+        }
+    }
     
     // MARK: IBAction func
     
     @IBAction func addCustomHealthCellBtnDidTap(_ sender: Any) {
-        guard let cell = Bundle.main.loadNibNamed("CustomHealthCell", owner: self, options: nil)?.first as? CustomHealthCell else {print("Cell Nib load err"); return}
-        healthcells.append(cell)
-        cell.selectionStyle = .none
+        let healthcellData = HealthCellData.init(isCustomCell: true, isTimerCellOpen: nil, indexPath: nil, exerciseName: nil, count: nil, setCount: nil)
+        healthcells.append(healthcellData)
         tableView.reloadData()
     }
     @IBAction func routineSaveButtonDidTap(_ sender: Any) {
-        makeAlert()
-        
+        saveRoutine()
     }
     
     // MARK: private func
     
-    private func makeAlert(){
+    private func saveRoutine(){
         let alertController = UIAlertController(title: "루틴 저장", message: "루틴의 이름을 정해주세요", preferredStyle: .alert)
         alertController.addTextField(configurationHandler: nil)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             // ok 눌렀을때 이름과 현재 창에 있는 셀 데이터 배열 저장하기
+            guard let routineName = alertController.textFields?.first?.text else {return}
             let routineData = RoutineData.init(routineName: alertController.textFields![0].text ?? "임의 루틴 이름", HealthCellDatas: self.healthcells)
-            if UserDefaults.standard.value(forKey: "routineDatas") == nil {
-                let routineDatas = [routineData] as NSArray
-                UserDefaults.standard.set(routineDatas, forKey: "routineDatas")
-            }else{
-                guard var routineDatas = UserDefaults.standard.value(forKey: "routineDatas") as? [RoutineData] else { return}
-                routineDatas.append(routineData)
-                UserDefaults.standard.set(routineData, forKey: "routineDatas")
+            let data = try! JSONEncoder().encode(routineData)
+            if self.save(routineName: routineName, exercises: data){
+                let completeAlert = UIAlertController(title: "저장되었습니다", message: nil, preferredStyle: .alert)
+                completeAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.tableView.reloadData()
+                self.present(completeAlert, animated: true)
             }
+            
             
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: CoreData Func
+    
+    // 데이터를 저장할 메소드
+    func save(routineName: String, exercises: Data) -> Bool {
+        // 앱 델리게이트 객체 참조
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        // 관리 객체 컨텍스트 참조
+        let context = appDelegate.persistentContainer.viewContext
+        // 관리 객체 생성 & 값을 설정
+        let object = NSEntityDescription.insertNewObject(forEntityName: "Routine", into: context)
+        object.setValue(routineName, forKey: "routineName")
+        object.setValue(exercises, forKey: "exercises")
+        
+        // 영구 저장소에 커밋되고 나면 list 프로퍼티에 추가한다.
+        do{
+            try context.save()
+            return true
+        }catch let error as NSError{
+            context.rollback()
+            return false
+        }
     }
     
 }
@@ -97,11 +129,21 @@ extension MainViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
-            return healthcells[indexPath.section]
+            if healthcells[indexPath.section].isCustomCell{
+                guard let customHealthCell = Bundle.main.loadNibNamed("CustomHealthCell", owner: self, options: nil)?.first as? CustomHealthCell else {print("Cell Nib load err"); return UITableViewCell()}
+                customHealthCell.selectionStyle = .none
+                return customHealthCell
+            }else{
+                guard let healthCell = Bundle.main.loadNibNamed("HealthCell", owner: self, options: nil)?.first as? HealthCell else {print("Cell Nib load err"); return UITableViewCell()}
+                healthCell.selectionStyle = .none
+                healthCell.model = healthcells[indexPath.section]
+                return healthCell
+            }
+            
         }else{
             guard let timerCell = Bundle.main.loadNibNamed("TimerTableViewCell", owner: self, options: nil)?.first as? TimerTableViewCell else {print("Cell Nib load err"); return UITableViewCell()}
+            timerCell.selectionStyle = .none
             return timerCell
-            
         }
         
     }

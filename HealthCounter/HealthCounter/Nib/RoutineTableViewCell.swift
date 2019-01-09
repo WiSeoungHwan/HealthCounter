@@ -11,6 +11,7 @@ import UIKit
 class RoutineTableViewCell: UITableViewCell {
     @IBOutlet weak var routineNameLabel: UILabel!
     
+    var healthData: Data = Data()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +20,7 @@ class RoutineTableViewCell: UITableViewCell {
     
     @IBAction func loadRoutineButtonDidTap(_ sender: Any) {
         //운동 창으로 이동 후 루틴에 해당하는 데이터 뿌려주기
-        
+        let data = ["healthData" : healthData]
+        NotificationCenter.default.post(name: NSNotification.Name("loadRoutine"), object: nil, userInfo: data)
     }
 }

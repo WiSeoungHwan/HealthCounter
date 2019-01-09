@@ -15,8 +15,8 @@ class HealthCell: UITableViewCell {
     var model: HealthCellData! {
         didSet{
             exerciseNameLabel.text = model.exerciseName
-            countLabel.text = "세트당 횟수: \(model.count)"
-            setCountLabel.text = "남은세트:\(model.setCount)"
+            countLabel.text = "세트당 횟수: \(model.count!)"
+            setCountLabel.text = "남은세트:\(model.setCount!)"
         }
     }
     override func awakeFromNib() {
@@ -29,13 +29,13 @@ class HealthCell: UITableViewCell {
     }
     
     @IBAction func setFinishButtonDidTap(_ sender: Any) {
-        if model.setCount > 0 {
-            model.setCount -= 1
+        if model.setCount! > 0 {
+            model.setCount! -= 1
         }
         NotificationCenter.default.post(name: NSNotification.Name("reloadTableView"), object: nil)
     }
     @IBAction func timerButtonDidTap(_ sender: Any) {
-        model.isTimerCellOpen.toggle()
+        model.isTimerCellOpen!.toggle()
                 NotificationCenter.default.post(name: NSNotification.Name("reloadTableView"), object: nil)
     }
 }

@@ -8,10 +8,11 @@
 
 import Foundation
 
-struct HealthCellData{
-    var isTimerCellOpen: Bool
-    let indexPath: IndexPath
-    let exerciseName: String
-    let count: Int
-    var setCount: Int
+struct HealthCellData: Codable{
+    var isCustomCell: Bool
+    var isTimerCellOpen: Bool?
+    let indexPath: IndexPath?
+    let exerciseName: String?
+    let count: Int?
+    var setCount: Int?
 }

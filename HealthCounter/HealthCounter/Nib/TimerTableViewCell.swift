@@ -9,8 +9,8 @@
 import UIKit
 
 class TimerTableViewCell: UITableViewCell {
-        var timer = Timer()
-        var counter: Double = 0.0
+    var timer = Timer()
+    var counter: Double = 0.0
     @IBOutlet weak var countLabel: UILabel!
     
     

@@ -36,7 +36,7 @@ class CustomHealthCell: UITableViewCell {
             let count = Int(countTextFeild.text ?? ""),
             let setCount = Int(setCountTextFeild.text ?? "") else {return}
         
-        let healthCellData = HealthCellData.init(isTimerCellOpen: false, indexPath: indexPath, exerciseName: exerciseName, count: count, setCount: setCount)
+        let healthCellData = HealthCellData.init(isCustomCell: false, isTimerCellOpen: false, indexPath: indexPath, exerciseName: exerciseName, count: count, setCount: setCount)
         print(indexPath)
         let dic = ["healthCellData": healthCellData]
         NotificationCenter.default.post(name: NSNotification.Name("startButtonDidTap"), object: nil, userInfo: dic)
