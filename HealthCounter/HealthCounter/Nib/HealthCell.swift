@@ -28,14 +28,23 @@ class HealthCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    // MARK: private func
+    private func sendNotiPost(name: String, userInfo: [String: Any]?){
+        NotificationCenter.default.post(name: NSNotification.Name(name), object: nil, userInfo: userInfo)
+    }
+    
+    // MARK: IBAction
     @IBAction func setFinishButtonDidTap(_ sender: Any) {
         if model.setCount! > 0 {
             model.setCount! -= 1
         }
-        NotificationCenter.default.post(name: NSNotification.Name("reloadTableView"), object: nil)
+        let dic = ["model": model]
+        sendNotiPost(name: "reloadTableView", userInfo: dic)
     }
     @IBAction func timerButtonDidTap(_ sender: Any) {
-        model.isTimerCellOpen!.toggle()
-                NotificationCenter.default.post(name: NSNotification.Name("reloadTableView"), object: nil)
+        model.isTimerCellOpen?.toggle()
+        let dic = ["model": model]
+        sendNotiPost(name: "reloadTableView", userInfo: dic)
     }
+    
 }

@@ -41,7 +41,13 @@ class MainViewController: UIViewController {
         healthcells.insert(healthData, at: healthData.indexPath!.section)
         tableView.reloadData()
     }
-    @objc private func reloadTableView(){
+    @objc private func reloadTableView(_ noti: Notification){
+        guard let userInfo = noti.userInfo as? [String: HealthCellData],
+              let healthData = userInfo["model"]
+        else { print("model Noti err"); return }
+        healthcells.remove(at: (healthData.indexPath?.section)!)
+        healthcells.insert(healthData, at: (healthData.indexPath?.section)!)
+        
         tableView.reloadData()
     }
     @objc private func loadRoutine(noti: Notification){
@@ -120,8 +126,9 @@ extension MainViewController: UITableViewDataSource{
         return healthcells.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let healthCell = healthcells[section] as? HealthCell else {return 1}
-        if healthCell.model.isTimerCellOpen == true{
+        guard let isTimerCellOpen = healthcells[section].isTimerCellOpen else { return 1 }
+        print(healthcells[section])
+        if isTimerCellOpen == true{
             return 2
         }
         return 1
@@ -141,6 +148,7 @@ extension MainViewController: UITableViewDataSource{
             }
             
         }else{
+            print("TimerCell")
             guard let timerCell = Bundle.main.loadNibNamed("TimerTableViewCell", owner: self, options: nil)?.first as? TimerTableViewCell else {print("Cell Nib load err"); return UITableViewCell()}
             timerCell.selectionStyle = .none
             return timerCell
