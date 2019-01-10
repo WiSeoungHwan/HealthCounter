@@ -1,2 +1,20 @@
 # HealthCounter
-simple HealthCounter
+
+---
+
+## 설명 
+
+* 내가 하고 싶은 운동의 루틴을 만들어서 저장합니다
+* 루틴을 불러와 저장합니다
+
+## 사용한 기술
+
+* CoreData
+* Notification
+* Codable
+
+## 이슈들 
+
+* UserDefault를 사용해서 데이터 저장을 하려고 했으나 기본 데이터 타입만 지원을 하고 내가 원하는 형태로 저장을 하지 못해서 찾아보니 CoreData 라는 것을 알게됨
+* CoreData 에 루틴의 이름과 운동 배열을 data 타입으로 변환을 해서 저장을 한뒤에 다시 변환을 해서 불러오는 형식으로 사용을 해서 해결함 
+
