@@ -48,6 +48,11 @@
                                                     <action selector="routineSaveButtonDidTap:" destination="JkI-PM-iwx" id="HNB-Sh-0U3"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem title="초기화" id="RcV-Rq-Hcq">
+                                                <connections>
+                                                    <action selector="resetBtnDIdTap:" destination="JkI-PM-iwx" id="T2s-W7-B2X"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>

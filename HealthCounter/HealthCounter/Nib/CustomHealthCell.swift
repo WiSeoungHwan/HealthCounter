@@ -21,9 +21,11 @@ class CustomHealthCell: UITableViewCell {
         self.contentView.layer.cornerRadius = 18
         countTextFeild.keyboardType = .numberPad
         setCountTextFeild.keyboardType = .numberPad
-        // Initialization code
+        
     }
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -48,4 +50,5 @@ extension CustomHealthCell: UITextFieldDelegate{
         textField.resignFirstResponder() // hide Keyboard
         return true
     }
+    
 }

@@ -64,7 +64,8 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVd-jH-ef9">
                         <rect key="frame" x="258" y="58" width="52" height="30"/>
-                        <state key="normal" title="시작하기"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <state key="normal" title="저장하기"/>
                         <connections>
                             <action selector="startButtonDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Oie-aP-qI1"/>
                         </connections>

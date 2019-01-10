@@ -53,6 +53,7 @@
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGU-0K-2Th">
                         <rect key="frame" x="294" y="58" width="56" height="30"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <state key="normal" title="세트완료 ">
                             <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.71896404110000001" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
@@ -62,6 +63,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwY-OA-R8t">
                         <rect key="frame" x="239" y="58" width="39" height="30"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <state key="normal" title="타이머">
                             <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.71896404110000001" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>

@@ -17,10 +17,16 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
     
     // MARK: configure
     
     func configure(){
+        
         let healthcellData = HealthCellData.init(isCustomCell: true, isTimerCellOpen: nil, indexPath: nil, exerciseName: nil, count: nil, setCount: nil)
         healthcells.append(healthcellData)
         tableView.separatorColor = .clear //셀의 경계선 투명으로
@@ -45,6 +51,7 @@ class MainViewController: UIViewController {
         guard let userInfo = noti.userInfo as? [String: HealthCellData],
               let healthData = userInfo["model"]
         else { print("model Noti err"); return }
+        // 현재 셀 데이터를 바꿔주기 
         healthcells.remove(at: (healthData.indexPath?.section)!)
         healthcells.insert(healthData, at: (healthData.indexPath?.section)!)
         
@@ -72,6 +79,12 @@ class MainViewController: UIViewController {
         saveRoutine()
     }
     
+    @IBAction func resetBtnDIdTap(_ sender: Any) {
+        self.healthcells = []
+        tableView.reloadData()
+    }
+    
+    
     // MARK: private func
     
     private func saveRoutine(){
@@ -85,6 +98,7 @@ class MainViewController: UIViewController {
             if self.save(routineName: routineName, exercises: data){
                 let completeAlert = UIAlertController(title: "저장되었습니다", message: nil, preferredStyle: .alert)
                 completeAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                NotificationCenter.default.post(name: NSNotification.Name("reloadRoutineTableView"), object: nil)
                 self.tableView.reloadData()
                 self.present(completeAlert, animated: true)
             }
@@ -127,7 +141,6 @@ extension MainViewController: UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let isTimerCellOpen = healthcells[section].isTimerCellOpen else { return 1 }
-        print(healthcells[section])
         if isTimerCellOpen == true{
             return 2
         }
