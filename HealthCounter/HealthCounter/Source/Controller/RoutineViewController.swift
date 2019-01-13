@@ -12,9 +12,13 @@ import CoreData
 class RoutineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     // 데이터 소스 역할을 할 배열 변수
-    lazy var list: [NSManagedObject] = {
-        return self.fetch()
-    }()
+    var list: [NSManagedObject] {
+        get{
+            return self.fetch()
+        }set{
+            
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorColor = .clear
