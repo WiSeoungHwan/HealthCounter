@@ -34,6 +34,7 @@ class HealthCell: UITableViewCell {
     }
     
     // MARK: IBAction
+    
     @IBAction func setFinishButtonDidTap(_ sender: Any) {
         if model.setCount! > 0 {
             model.setCount! -= 1
@@ -45,6 +46,11 @@ class HealthCell: UITableViewCell {
         model.isTimerCellOpen?.toggle()
         let dic = ["model": model]
         sendNotiPost(name: "reloadTableView", userInfo: dic)
+    }
+    
+    @IBAction func editBtnDidTap(_ sender: Any) {
+        let dic = ["model" : self.model]
+        sendNotiPost(name: "editBtnDidTap", userInfo: dic )
     }
     
 }

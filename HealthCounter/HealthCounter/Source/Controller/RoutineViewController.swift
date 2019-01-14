@@ -15,9 +15,7 @@ class RoutineViewController: UIViewController {
     var list: [NSManagedObject] {
         get{
             return self.fetch()
-        }set{
-            
-        }
+        }set{}
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +60,6 @@ class RoutineViewController: UIViewController {
             context.rollback()
             return false
         }
-        
     }
     
 }
@@ -89,9 +86,9 @@ extension RoutineViewController: UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let object = self.list[indexPath.section] // 삭제할 대상 객체
+        self.list.remove(at: indexPath.section)
         if self.delete(object: object){
             //코어데이터에서 삭제되고 나면 배열 목록과 테이블 뷰의 행도 삭제한다.
-            self.list.remove(at: indexPath.row)
             self.tableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
         }
     }

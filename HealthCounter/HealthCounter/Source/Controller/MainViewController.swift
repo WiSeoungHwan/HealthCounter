@@ -35,7 +35,8 @@ class MainViewController: UIViewController {
         // MARK: Noti
         NotificationCenter.default.addObserver(self, selector: #selector(startButtonDidTap), name: NSNotification.Name(rawValue: "startButtonDidTap"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("reloadTableView"), object: nil)
-         NotificationCenter.default.addObserver(self, selector: #selector(loadRoutine), name: NSNotification.Name("loadRoutine"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadRoutine), name: NSNotification.Name("loadRoutine"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(editBtnDidTap), name: NSNotification.Name("editBtnDidTap"), object: nil)
     }
     
     // MARK: objc func
@@ -58,7 +59,7 @@ class MainViewController: UIViewController {
         tableView.reloadData()
     }
     @objc private func loadRoutine(noti: Notification){
-        guard let userInfo = noti.userInfo as? [String: Data], let data = userInfo["healthData"] else{return}
+        guard let userInfo = noti.userInfo as? [String: Data], let data = userInfo["healthData"] else {return}
         do {
             let routineData = try JSONDecoder().decode(RoutineData.self, from: data)
             self.healthcells = routineData.HealthCellDatas
@@ -67,6 +68,15 @@ class MainViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
+    @objc private func editBtnDidTap(_ noti: Notification){
+        guard let userInfo = noti.userInfo as? [String: HealthCellData],
+              var healthData = userInfo["model"] else {return}
+        healthData.isCustomCell = true
+        self.healthcells.remove(at: healthData.indexPath?.section ?? 0)
+        self.healthcells.insert( healthData, at: healthData.indexPath?.section ?? 0)
+        tableView.reloadData()
+    }
+    
     
     // MARK: IBAction func
     
@@ -128,7 +138,7 @@ class MainViewController: UIViewController {
         do{
             try context.save()
             return true
-        }catch let error as NSError{
+        }catch{
             context.rollback()
             return false
         }
@@ -151,6 +161,7 @@ extension MainViewController: UITableViewDataSource{
         if indexPath.row == 0{
             if healthcells[indexPath.section].isCustomCell{
                 guard let customHealthCell = Bundle.main.loadNibNamed("CustomHealthCell", owner: self, options: nil)?.first as? CustomHealthCell else {print("Cell Nib load err"); return UITableViewCell()}
+                customHealthCell.model = healthcells[indexPath.section]
                 customHealthCell.selectionStyle = .none
                 return customHealthCell
             }else{

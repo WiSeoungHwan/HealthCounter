@@ -13,6 +13,16 @@ class CustomHealthCell: UITableViewCell {
     @IBOutlet weak var countTextFeild: UITextField!
     @IBOutlet weak var setCountTextFeild: UITextField!
     
+    var model: HealthCellData! {
+        didSet{
+            exerciseNameTextFeild.text = model.exerciseName
+            if model.count != nil, model.setCount != nil{
+                countTextFeild.text = "\(model.count!)"
+                setCountTextFeild.text = "\(model.setCount!)"
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         exerciseNameTextFeild.delegate = self
@@ -28,21 +38,21 @@ class CustomHealthCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-       
     }
+    
     @IBAction func startButtonDidTap(_ sender: Any) {
         guard let tableView = self.superview as? UITableView else {return}
         guard let indexPath = tableView.indexPath(for: self),
               let exerciseName = exerciseNameTextFeild.text,
             let count = Int(countTextFeild.text ?? ""),
             let setCount = Int(setCountTextFeild.text ?? "") else {return}
-        
         let healthCellData = HealthCellData.init(isCustomCell: false, isTimerCellOpen: false, indexPath: indexPath, exerciseName: exerciseName, count: count, setCount: setCount)
         print(indexPath)
         let dic = ["healthCellData": healthCellData]
         NotificationCenter.default.post(name: NSNotification.Name("startButtonDidTap"), object: nil, userInfo: dic)
     }
+    
+    
     
 }
 extension CustomHealthCell: UITextFieldDelegate{

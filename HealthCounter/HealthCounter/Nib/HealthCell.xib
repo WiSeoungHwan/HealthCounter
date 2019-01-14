@@ -29,8 +29,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="세트" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmp-CL-sb3">
-                        <rect key="frame" x="192" y="11" width="170" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="남은세트: 11" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmp-CL-sb3">
+                        <rect key="frame" x="192" y="11" width="105" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="6qY-no-HJA"/>
                         </constraints>
@@ -71,6 +71,17 @@
                             <action selector="timerButtonDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QTJ-5S-iSf"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cn8-iM-9ZM">
+                        <rect key="frame" x="332" y="9" width="30" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <state key="normal" title="설정">
+                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.71896404110000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="editBtnDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NIg-lg-Tyi"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.6697613441780822" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
@@ -78,7 +89,6 @@
                     <constraint firstItem="ZGU-0K-2Th" firstAttribute="top" secondItem="dmp-CL-sb3" secondAttribute="bottom" constant="17" id="5ed-Hm-i3T"/>
                     <constraint firstItem="GdB-8b-D4i" firstAttribute="height" secondItem="PLe-l6-VS8" secondAttribute="height" id="7TI-5M-zZv"/>
                     <constraint firstItem="PLe-l6-VS8" firstAttribute="top" secondItem="Xs3-YW-beF" secondAttribute="bottom" constant="8" id="7ou-xl-0il"/>
-                    <constraint firstAttribute="trailing" secondItem="dmp-CL-sb3" secondAttribute="trailing" constant="16" id="8RZ-Tf-pkt"/>
                     <constraint firstItem="Xs3-YW-beF" firstAttribute="top" secondItem="GdB-8b-D4i" secondAttribute="bottom" constant="8" id="LYR-cd-xdf"/>
                     <constraint firstAttribute="trailing" secondItem="ZGU-0K-2Th" secondAttribute="trailing" constant="28" id="MjK-UN-xl6"/>
                     <constraint firstItem="Xs3-YW-beF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="V3M-Cn-p8v"/>
