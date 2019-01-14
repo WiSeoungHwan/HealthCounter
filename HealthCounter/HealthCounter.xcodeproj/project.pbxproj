@@ -25,6 +25,7 @@
 		3CE4835A21E30BFF00789D15 /* RoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4835821E30BFF00789D15 /* RoutineTableViewCell.swift */; };
 		3CE4835B21E30BFF00789D15 /* RoutineTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE4835921E30BFF00789D15 /* RoutineTableViewCell.xib */; };
 		3CE483A021E4902F00789D15 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CE4839E21E4902F00789D15 /* Model.xcdatamodeld */; };
+		6D2283F400387937827873D2 /* Pods_HealthCounter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F6D4B6BCEA317902D4FA83 /* Pods_HealthCounter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,9 @@
 		3CE4835821E30BFF00789D15 /* RoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTableViewCell.swift; sourceTree = "<group>"; };
 		3CE4835921E30BFF00789D15 /* RoutineTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutineTableViewCell.xib; sourceTree = "<group>"; };
 		3CE4839F21E4902F00789D15 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7AA7C3E76E5D7867F8A81AAA /* Pods-HealthCounter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCounter.debug.xcconfig"; path = "Target Support Files/Pods-HealthCounter/Pods-HealthCounter.debug.xcconfig"; sourceTree = "<group>"; };
+		9A400424C0DEDE082B5DC152 /* Pods-HealthCounter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthCounter.release.xcconfig"; path = "Target Support Files/Pods-HealthCounter/Pods-HealthCounter.release.xcconfig"; sourceTree = "<group>"; };
+		D2F6D4B6BCEA317902D4FA83 /* Pods_HealthCounter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthCounter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D2283F400387937827873D2 /* Pods_HealthCounter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,8 @@
 			children = (
 				3CD1A19621D916FE00DAF12A /* HealthCounter */,
 				3CD1A19521D916FE00DAF12A /* Products */,
+				89129BE7E7A68A87C0B0DCEE /* Pods */,
+				9F3BC6A0444BB3A2BBECB7C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +158,24 @@
 			path = Nib;
 			sourceTree = "<group>";
 		};
+		89129BE7E7A68A87C0B0DCEE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7AA7C3E76E5D7867F8A81AAA /* Pods-HealthCounter.debug.xcconfig */,
+				9A400424C0DEDE082B5DC152 /* Pods-HealthCounter.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9F3BC6A0444BB3A2BBECB7C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2F6D4B6BCEA317902D4FA83 /* Pods_HealthCounter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,6 +183,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3CD1A1A621D916FE00DAF12A /* Build configuration list for PBXNativeTarget "HealthCounter" */;
 			buildPhases = (
+				ECFE41C04CCA140E0215355B /* [CP] Check Pods Manifest.lock */,
 				3CD1A19021D916FE00DAF12A /* Sources */,
 				3CD1A19121D916FE00DAF12A /* Frameworks */,
 				3CD1A19221D916FE00DAF12A /* Resources */,
@@ -220,6 +246,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ECFE41C04CCA140E0215355B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HealthCounter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3CD1A19021D916FE00DAF12A /* Sources */ = {
@@ -380,6 +431,7 @@
 		};
 		3CD1A1A721D916FE00DAF12A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AA7C3E76E5D7867F8A81AAA /* Pods-HealthCounter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -398,6 +450,7 @@
 		};
 		3CD1A1A821D916FE00DAF12A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A400424C0DEDE082B5DC152 /* Pods-HealthCounter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

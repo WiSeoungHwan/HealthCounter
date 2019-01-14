@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bannerView: GADBannerView!
+    
     var healthcells: [HealthCellData] = []
     
     override func viewDidLoad() {
@@ -26,6 +29,11 @@ class MainViewController: UIViewController {
     // MARK: configure
     
     func configure(){
+        // MARK: google banner
+        //testUnitId
+        self.bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        self.bannerView.rootViewController = self
+        self.bannerView.load(GADRequest())
         
         let healthcellData = HealthCellData.init(isCustomCell: true, isTimerCellOpen: nil, indexPath: nil, exerciseName: nil, count: nil, setCount: nil)
         healthcells.append(healthcellData)

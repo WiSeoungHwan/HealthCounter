@@ -57,17 +57,27 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hmh-ey-5cZ" customClass="GADBannerView">
+                                <rect key="frame" x="27.5" y="568" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="89P-lr-nyD"/>
+                                    <constraint firstAttribute="width" constant="320" id="9qH-Bv-Bqb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="0.64330051369863028" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yiB-Ph-bz3" firstAttribute="bottom" secondItem="kDe-YZ-XtU" secondAttribute="bottom" id="1lw-54-Io6"/>
                             <constraint firstItem="yiB-Ph-bz3" firstAttribute="trailing" secondItem="43s-F7-gw3" secondAttribute="trailing" id="78I-Va-0O5"/>
                             <constraint firstItem="43s-F7-gw3" firstAttribute="top" secondItem="yiB-Ph-bz3" secondAttribute="top" id="94p-CR-kfb"/>
+                            <constraint firstItem="hmh-ey-5cZ" firstAttribute="centerX" secondItem="yiB-Ph-bz3" secondAttribute="centerX" id="GjF-zv-zS5"/>
                             <constraint firstItem="kDe-YZ-XtU" firstAttribute="leading" secondItem="yiB-Ph-bz3" secondAttribute="leading" id="Kgt-be-ZXn"/>
                             <constraint firstItem="kDe-YZ-XtU" firstAttribute="top" secondItem="YoV-kH-UxO" secondAttribute="bottom" id="PUm-TE-pIw"/>
                             <constraint firstItem="43s-F7-gw3" firstAttribute="leading" secondItem="yiB-Ph-bz3" secondAttribute="leading" id="UR6-h9-5MZ"/>
                             <constraint firstItem="YoV-kH-UxO" firstAttribute="top" secondItem="yiB-Ph-bz3" secondAttribute="top" id="VHR-19-SPh"/>
                             <constraint firstItem="yiB-Ph-bz3" firstAttribute="bottom" secondItem="43s-F7-gw3" secondAttribute="bottom" id="Ypa-Mv-Mfv"/>
+                            <constraint firstItem="yiB-Ph-bz3" firstAttribute="bottom" secondItem="hmh-ey-5cZ" secondAttribute="bottom" id="aj5-bP-6HK"/>
                             <constraint firstItem="YoV-kH-UxO" firstAttribute="leading" secondItem="yiB-Ph-bz3" secondAttribute="leading" id="et4-Ac-Z2B"/>
                             <constraint firstItem="yiB-Ph-bz3" firstAttribute="trailing" secondItem="kDe-YZ-XtU" secondAttribute="trailing" id="g9F-Cj-fNL"/>
                             <constraint firstItem="YoV-kH-UxO" firstAttribute="trailing" secondItem="yiB-Ph-bz3" secondAttribute="trailing" id="uyN-XQ-DpQ"/>
@@ -76,6 +86,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="운동" image="routine" id="9vX-hL-Nhd"/>
                     <connections>
+                        <outlet property="bannerView" destination="hmh-ey-5cZ" id="qEF-YA-aeW"/>
                         <outlet property="tableView" destination="kDe-YZ-XtU" id="rJt-9A-DzN"/>
                     </connections>
                 </viewController>
