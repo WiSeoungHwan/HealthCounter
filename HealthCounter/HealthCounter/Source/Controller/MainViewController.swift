@@ -30,8 +30,8 @@ class MainViewController: UIViewController {
     
     func configure(){
         // MARK: google banner
-        //testUnitId
-        self.bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        
+        self.bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111" //testUnitId
         self.bannerView.rootViewController = self
         self.bannerView.load(GADRequest())
         
