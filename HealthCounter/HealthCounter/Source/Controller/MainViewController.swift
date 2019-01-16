@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
         tableView.separatorColor = .clear //셀의 경계선 투명으로
         tableView.reloadData()
         
-        // MARK: Noti
+        // MARK: NotificationCenter
         NotificationCenter.default.addObserver(self, selector: #selector(startButtonDidTap), name: NSNotification.Name(rawValue: "startButtonDidTap"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name("reloadTableView"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(loadRoutine), name: NSNotification.Name("loadRoutine"), object: nil)
